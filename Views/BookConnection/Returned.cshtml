@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Library.Models.BookConnection>
+
+﻿
+@{
+    ViewData["Title"] = "Returned";
+}
+
+<h1>Returned Books</h1>
+
+<br />
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Book)
+            </th>
+
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Customer.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Book.Title)
+                    <br>
+                    @Html.DisplayFor(modelItem => item.Book.Author)
+                </td>
+
+
+            </tr>
+        }
+    </tbody>
+</table>

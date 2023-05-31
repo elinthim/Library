@@ -1,0 +1,106 @@
+﻿@model IEnumerable<Library.Models.BookConnection>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Search</h1>
+
+
+
+<form asp-action="Index" method="get">
+    <div class="form-group">
+        <label for="SearchString">Search by Customer, Book , Author : </label>
+        <input type="text" name="SearchString" value="" />
+        <input type="submit" value="Search" class="btn btn-primary" />
+    </div>
+
+
+
+</form>
+<br />
+<br />
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Book)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Book.Author)
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Customer.Name)
+                </td>
+
+
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Book.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Book.Author)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+@*<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Book)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsReturned)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Barrowed)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Book.Author)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsReturned)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Barrowed)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.BookConnectionId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.BookConnectionId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.BookConnectionId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>*@
